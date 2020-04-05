@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <script>
+        let choices = ['rock','paper','scissor']
+       function computerPlay() {
+        return choices[Math.floor(Math.random()*choices.length)]
+       }
+       //function singleRound(playerSelection, computerSelection) {
+       // if(playerSelection == 'rock' && computerSelection == 'scissor') {
+       //     return 'You Win! Rock beats scissor!'
+       // } else if(playerSelection == 'rock' && computerSelection == 'paper') {
+       //     return 'You Lose... Paper beats rock...'
+       // } else if(playerSelection == 'paper' && computerSelection == 'rock') {
+       //     return 'You Win! Paper beats rock!'
+       // } else if (playerSelection == 'paper' && computerSelection == 'scissor') {
+       //     return 'You Lose... Scissor beats paper...'
+       // } else if (playerSelection == 'scissor' && computerSelection == 'paper') {
+       //     return 'You Win! Scissor beats paper!'
+       // } else if (playerSelection == 'scissor' && computerSelection == 'rock') {
+       //     return 'You Lose... Rock beats scissor...'
+       // } else {
+       //     return 'Draw!'
+        //}
+      // }
+       //const playerSelection = prompt().toLowerCase()
+       //const computerSelection = computerPlay()
+       //console.log(singleRound(playerSelection, computerSelection))
+    
+    let playerScore = 0;
+    let computerScore = 0;
+    let ties = 0
+
+       function game() {
+
+        //let playerScore = 0;
+        //let computerScore = 0;
+        //let ties = 0
+        //let totalRounds = 0;
+
+        function singleRound(playerSelection, computerSelection) {
+
+            console.log('Player picked: ' + playerSelection)
+            console.log('Computer picked: ' + computerSelection)
+               
+               if (playerSelection == computerSelection) {
+                   ties++;
+                   //computerScore = computerScore;
+                   //playerScore = playerScore;
+                   return 'Tie!'
+               } else if (playerSelection == 'rock') {
+                    if (computerSelection == 'scissor') {
+                        playerScore++;
+                        //computerScore = computerScore;
+                        return 'You win! Rock beats scissor!';
+                    } else {
+                        computerScore++;
+                        //playerScore = playerScore;
+                        return 'You lose... Paper beats rock...';
+                    }
+               } else if (playerSelection == 'paper') {
+                    if (computerSelection == 'rock') {
+                        playerScore++;
+                        //computerScore = computerScore;
+                        return 'You win! Paper beats rock!';
+                    } else {
+                        computerScore++;
+                        //playerScore = playerScore;
+                        return 'You lose... Scissor beats paper...';
+                    }
+               } else if (playerSelection == 'scissor') {
+                    if (computerSelection == 'paper') {
+                        playerScore++;
+                        //computerScore = computerScore;
+                        return 'You win! Scissor beats paper!';
+                    } else {
+                        computerScore++;
+                        //playerScore = playerScore;
+                        return 'You lose... Rock beats scissor...';
+                    }
+               } else {
+                   return 'Error. Invalid choice.'
+               }
+           }
+
+           const playerSelection = prompt().toLowerCase()
+           const computerSelection = computerPlay()
+           console.log(singleRound(playerSelection, computerSelection))
+           console.log('Player score: ' + playerScore)
+           console.log('Computer score: ' + computerScore)
+           console.log('Ties: ' + ties)
+           console.log('------------------------')
+
+           if (playerScore >= 3) {
+                alert('You Win!')
+           } else if (computerScore >= 3) {
+                alert('You lost... Better luck next time.')
+           } else if (ties >= 3) {
+                alert('Tied.')
+           }
+       }
+
+       game()
+       game()
+       game()
+       game()
+       game()
+
+    </script>
+</body>
+
+</html>//
